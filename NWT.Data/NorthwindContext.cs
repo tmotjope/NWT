@@ -3,15 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using NWT.Domain;
 
-namespace NWT.Data
+namespace NWT.Persistance
 {
     public partial class NorthwindContext : DbContext
     {
-        public NorthwindContext()
-        {
-        }
-
-        public NorthwindContext(DbContextOptions<NorthwindContext> options)
+         public NorthwindContext(DbContextOptions<NorthwindContext> options)
             : base(options)
         {
         }

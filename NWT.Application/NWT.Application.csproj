@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NWT.Data\NWT.Data.csproj" />
+    <ProjectReference Include="..\NWT.Persistance\NWT.Persistance.csproj" />
   </ItemGroup>
 
 </Project>

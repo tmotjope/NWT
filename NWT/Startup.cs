@@ -11,12 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using NWT.Data;
 using Autofac;
 using NWT.Infrastructure;
 using NSwag.AspNetCore;
 using System.Reflection;
 using NJsonSchema;
+using NWT.Persistance;
+using NWT.Persistence;
 
 namespace NWT
 {
@@ -52,8 +53,13 @@ namespace NWT
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory, NorthwindContext context)
         {
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,6 +78,7 @@ namespace NWT
                 });
 
             app.UseMvc();
+            NorthwindInitializer.Initialize(context);
         }
     }
 }

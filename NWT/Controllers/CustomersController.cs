@@ -9,8 +9,7 @@ using NWT.Application.Customers.Commands.DeleteCustomer;
 using NWT.Application.Customers.Commands.UpdateCustomer;
 using NWT.Application.Customers.Queries.GetCustomerDetail;
 using NWT.Application.Customers.Queries.GetCustomerList;
-using NWT.Data;
-using NWT.Domain;
+
 
 namespace NWT.Controllers
 {

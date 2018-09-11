@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using NWT.Application.Customers.Interfaces;
 using NWT.Application.Customers.Queries.GetCustomerList;
 using NWT.Common;
 using System;
@@ -17,6 +18,7 @@ namespace NWT.Infrastructure
                 .AsImplementedInterfaces();
 
             builder.RegisterType<MachineDateTime>().As<IDateTime>();
+            builder.RegisterType<NotificationService>().As<INotificationService>();
         }
     }
 }

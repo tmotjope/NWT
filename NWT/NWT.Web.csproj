@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NWT.Application\NWT.Application.csproj" />
     <ProjectReference Include="..\NWT.Common\NWT.Common.csproj" />
+    <ProjectReference Include="..\NWT.Infrastructure\NWT.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
