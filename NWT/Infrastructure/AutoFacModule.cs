@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using NWT.Application.Customers.Interfaces;
+using NWT.Application.Interfaces;
 using NWT.Application.Customers.Queries.GetCustomerList;
 using NWT.Common;
 using System;

@@ -1,4 +1,4 @@
-﻿using NWT.Application.Customers.Interfaces;
+﻿using NWT.Application.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;

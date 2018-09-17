@@ -9,7 +9,7 @@ namespace NWT.Domain
     {
         public Customer()
         {
-            CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
+           
             Orders = new HashSet<Order>();
         }
 
@@ -39,9 +39,9 @@ namespace NWT.Domain
         
         public string Fax { get; set; }
 
-        [InverseProperty("Customer")]
-        public virtual ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
-        [InverseProperty("Customer")]
+     
+
+      
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NWT.Persistance;
+using NWT.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

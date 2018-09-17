@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NWT.Persistance\NWT.Persistance.csproj" />
+    <PackageReference Include="Dapper" Version="1.50.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NWT.Domain\NWT.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
-﻿using NWT.Application.Customers.Interfaces;
+﻿using NWT.Application.Interfaces;
 using NWT.Domain;
-using NWT.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Text;

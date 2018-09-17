@@ -12,13 +12,12 @@ namespace NWT.Domain
             Territories = new HashSet<Territory>();
         }
 
-        [Column("RegionID")]
+
         public int RegionId { get; set; }
-        [Required]
-        [StringLength(50)]
+
         public string RegionDescription { get; set; }
 
-        [InverseProperty("Region")]
+
         public virtual ICollection<Territory> Territories { get; set; }
     }
 }

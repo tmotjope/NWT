@@ -16,8 +16,7 @@ using NWT.Infrastructure;
 using NSwag.AspNetCore;
 using System.Reflection;
 using NJsonSchema;
-using NWT.Persistance;
-using NWT.Persistence;
+using NWT.Domain;
 
 namespace NWT
 {
