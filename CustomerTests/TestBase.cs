@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CustomerTests
+namespace NWT.Application.Tests
 {
     
     public class TestBase

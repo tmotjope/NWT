@@ -1,9 +1,5 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using NWT.Domain;
-
-using NWT.Domain.Extensions;
 using NWT.Persistence.Configurations;
 
 namespace NWT.Domain
@@ -27,6 +23,7 @@ namespace NWT.Domain
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,6 +40,7 @@ namespace NWT.Domain
             modelBuilder.ApplyConfiguration(new ShipperConfiguration());
             modelBuilder.ApplyConfiguration(new SupplierConfiguration());
             modelBuilder.ApplyConfiguration(new TerritoryConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
 
         }
     }

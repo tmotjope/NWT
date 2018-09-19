@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CustomerTests.Mangers
+namespace NWT.Application.Tests
 {
     [TestClass]
     public class ChangeEmployerReportToCommandTest : TestBase

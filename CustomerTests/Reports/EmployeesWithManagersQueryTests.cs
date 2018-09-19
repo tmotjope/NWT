@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerTests.Reports
+namespace NWT.Application.Tests
 {
     [TestClass]
     public class EmployeesWithManagersQueryTests : TestBase

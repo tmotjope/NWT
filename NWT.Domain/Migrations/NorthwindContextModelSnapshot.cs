@@ -8,14 +8,14 @@ using NWT.Domain;
 
 namespace NWT.Domain.Migrations
 {
-    [DbContext(typeof(NorthwindInitializer))]
+    [DbContext(typeof(NorthwindContext))]
     partial class NorthwindContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.2-rtm-30932")
+                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -81,38 +81,6 @@ namespace NWT.Domain.Migrations
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("NWT.Domain.CustomerCustomerDemo", b =>
-                {
-                    b.Property<string>("CustomerId")
-                        .HasColumnName("CustomerID")
-                        .HasMaxLength(5);
-
-                    b.Property<string>("CustomerTypeId")
-                        .HasColumnName("CustomerTypeID")
-                        .HasMaxLength(10);
-
-                    b.HasKey("CustomerId");
-
-                    b.HasIndex("CustomerTypeId");
-
-                    b.ToTable("CustomerCustomerDemo");
-                });
-
-            modelBuilder.Entity("NWT.Domain.CustomerDemographics", b =>
-                {
-                    b.Property<string>("CustomerTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("CustomerTypeID")
-                        .HasMaxLength(10);
-
-                    b.Property<string>("CustomerDesc")
-                        .HasColumnType("ntext");
-
-                    b.HasKey("CustomerTypeId");
-
-                    b.ToTable("CustomerDemographics");
                 });
 
             modelBuilder.Entity("NWT.Domain.Employee", b =>
@@ -430,16 +398,15 @@ namespace NWT.Domain.Migrations
                     b.ToTable("Territories");
                 });
 
-            modelBuilder.Entity("NWT.Domain.CustomerCustomerDemo", b =>
+            modelBuilder.Entity("NWT.Domain.User", b =>
                 {
-                    b.HasOne("NWT.Domain.Customer", "Customer")
-                        .WithMany("CustomerCustomerDemo")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasOne("NWT.Domain.CustomerDemographics", "CustomerType")
-                        .WithMany("CustomerCustomerDemo")
-                        .HasForeignKey("CustomerTypeId");
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("NWT.Domain.Employee", b =>
@@ -513,6 +480,29 @@ namespace NWT.Domain.Migrations
                         .WithMany("Territories")
                         .HasForeignKey("RegionId")
                         .HasConstraintName("FK_Territories_Region");
+                });
+
+            modelBuilder.Entity("NWT.Domain.User", b =>
+                {
+                    b.OwnsOne("NWT.Domain.ValueObjects.AdAccount", "AdAccount", b1 =>
+                        {
+                            b1.Property<int>("UserId")
+                                .ValueGeneratedOnAdd()
+                                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                            b1.Property<string>("Domain")
+                                .HasColumnName("Domain");
+
+                            b1.Property<string>("Name")
+                                .HasColumnName("Name");
+
+                            b1.ToTable("Users");
+
+                            b1.HasOne("NWT.Domain.User")
+                                .WithOne("AdAccount")
+                                .HasForeignKey("NWT.Domain.ValueObjects.AdAccount", "UserId")
+                                .OnDelete(DeleteBehavior.Cascade);
+                        });
                 });
 #pragma warning restore 612, 618
         }
